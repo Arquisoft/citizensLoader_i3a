@@ -4,7 +4,7 @@ import java.util.logging.Logger;
 
 /**
  * Main application
- * 
+ *-
  * @author Labra
  *
  */
