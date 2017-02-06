@@ -1,6 +1,6 @@
-package Factory.impl;
+package es.uniovi.asw.factory.impl;
 
-import Factory.IFactory;
+import es.uniovi.asw.factory.IFactory;
 
 public class Factory implements IFactory {
 	private DAOFactory daof;

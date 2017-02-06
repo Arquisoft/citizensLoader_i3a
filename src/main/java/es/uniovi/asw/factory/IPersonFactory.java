@@ -1,9 +1,8 @@
-package Factory;
+package es.uniovi.asw.factory;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
-import model.UserModel;
+import es.uniovi.asw.model.UserModel;
 
 public interface IPersonFactory {
 	ArrayList<UserModel> UsersFromFile(String filename) throws IOException;

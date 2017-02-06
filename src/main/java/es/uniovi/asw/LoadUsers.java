@@ -3,9 +3,9 @@ package es.uniovi.asw;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
-import Factory.impl.PersonFactory;
 import es.uniovi.asw.*;
-import model.UserModel;
+import es.uniovi.asw.factory.impl.PersonFactory;
+import es.uniovi.asw.model.UserModel;
 
 /**
  * Main application

@@ -1,4 +1,4 @@
-package model;
+package es.uniovi.asw.model;
 
 public class UserModel {
 	private String _fName;

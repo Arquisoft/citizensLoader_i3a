@@ -1,7 +1,7 @@
-package Factory.impl;
+package es.uniovi.asw.factory.impl;
 
-import Factory.IDAOFactory;
-import dao.UserDAO;
+import es.uniovi.asw.dao.UserDAO;
+import es.uniovi.asw.factory.IDAOFactory;
 
 public class DAOFactory implements IDAOFactory {
 	private UserDAO udao;

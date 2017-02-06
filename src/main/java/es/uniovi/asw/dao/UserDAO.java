@@ -1,6 +1,6 @@
-package dao;
+package es.uniovi.asw.dao;
 
-import model.UserModel;
+import es.uniovi.asw.model.UserModel;
 
 public class UserDAO implements IUserDAO {
 

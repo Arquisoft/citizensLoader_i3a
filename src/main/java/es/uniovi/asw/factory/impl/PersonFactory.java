@@ -1,4 +1,4 @@
-package Factory.impl;
+package es.uniovi.asw.factory.impl;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,8 +12,8 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
-import Factory.IPersonFactory;
-import model.UserModel;
+import es.uniovi.asw.factory.IPersonFactory;
+import es.uniovi.asw.model.UserModel;
 
 public class PersonFactory implements IPersonFactory {
 	public ArrayList<UserModel> UsersFromFile(String filename) throws IOException {
