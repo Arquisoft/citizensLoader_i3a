@@ -1,6 +1,5 @@
-package es.uniovi.asw;
+package Factory.impl;
 
-import java.io.Console;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,7 +12,10 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
-public class PersonFactory {
+import Factory.IPersonFactory;
+import model.UserModel;
+
+public class PersonFactory implements IPersonFactory {
 	public ArrayList<UserModel> UsersFromFile(String filename) throws IOException {
 		 ArrayList<UserModel> um = new ArrayList<UserModel>();
 		 FileInputStream file;
@@ -26,6 +28,8 @@ public class PersonFactory {
 				 Row row = rowIterator.next();
 				 um.add(UserFromRow(row));
 			 }
+			 hwb.close();
+			 file.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found: " + filename);
 			throw e;
