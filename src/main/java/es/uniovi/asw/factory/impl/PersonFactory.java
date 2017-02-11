@@ -13,12 +13,18 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
 import es.uniovi.asw.factory.IPersonFactory;
+import es.uniovi.asw.letters.LetterGenerator;
+import es.uniovi.asw.letters.PasswordGenerator;
 import es.uniovi.asw.model.UserModel;
 
 public class PersonFactory implements IPersonFactory {
+	
+	private LetterGenerator letterGenerator;
+	
 	public ArrayList<UserModel> UsersFromFile(String filename) throws IOException {
 		 ArrayList<UserModel> um = new ArrayList<UserModel>();
 		 FileInputStream file;
+		 
 		 try {
 			 file = new FileInputStream(new File(filename));
 			 HSSFWorkbook hwb = new HSSFWorkbook(file);
@@ -26,8 +32,13 @@ public class PersonFactory implements IPersonFactory {
 			 Iterator<Row> rowIterator = sheet.iterator();
 			 while(rowIterator.hasNext()) {
 				 Row row = rowIterator.next();
-				 um.add(UserFromRow(row));
+				 um.add(UserFromRow(row));				 
 			 }
+			 
+			 for(UserModel user : um){
+				 letterGenerator.generateLetter(user);
+			 }
+			 
 			 hwb.close();
 			 file.close();
 		} catch (FileNotFoundException e) {
@@ -50,7 +61,8 @@ public class PersonFactory implements IPersonFactory {
 			data.add(cell.getStringCellValue());
 		}
 		um = new UserModel(data.get(0), data.get(1), data.get(2), data.get(3), 
-							data.get(4), data.get(5), data.get(6), data.get(7));
+							data.get(4), data.get(5), data.get(6));
+		um.setPassword(PasswordGenerator.generateRandomPassword());
 		return um;
-	}
+	}	
 }

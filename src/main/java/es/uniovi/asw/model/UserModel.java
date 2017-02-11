@@ -11,6 +11,17 @@ public class UserModel {
 	private String password;
 	
 	public UserModel(String _fname, String _lname, String _email,
+			String _bDay, String _address, String _nationality, String ID) {
+		this._fName = _fname;
+		this._lName = _lname;
+		this._email = _email;
+		this._bDay = _bDay;
+		this._address = _address;
+		this._nationality  = _nationality;
+		this.ID = ID;
+	}
+	
+	public UserModel(String _fname, String _lname, String _email,
 			String _bDay, String _address, String _nationality, String ID, String password) {
 		this._fName = _fname;
 		this._lName = _lname;
