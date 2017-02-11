@@ -11,3 +11,4 @@ Skeleton of Citizens Loader module
 
 Herminio García González (@herminiogg)
 Jose Emilio Labra Gayo (@labra)
+Katia Fernández Fernández (@katiaff)
