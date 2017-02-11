@@ -50,7 +50,7 @@ public class PersonFactory implements IPersonFactory {
 			data.add(cell.getStringCellValue());
 		}
 		um = new UserModel(data.get(0), data.get(1), data.get(2), data.get(3), 
-							data.get(4), data.get(5), data.get(6));
+							data.get(4), data.get(5), data.get(6), data.get(7));
 		return um;
 	}
 }
