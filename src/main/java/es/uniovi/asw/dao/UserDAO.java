@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 import es.uniovi.asw.model.UserModel;
 
 public class UserDAO implements IUserDAO {
@@ -23,8 +22,10 @@ public class UserDAO implements IUserDAO {
 	}
 	private void OpenConn() throws SQLException {
 		try {
-		if(conn == null) 
+		if(conn == null) {
+			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(URL, User, Pass);
+			}
 		}
 		catch(Exception e) {
 			e.printStackTrace();

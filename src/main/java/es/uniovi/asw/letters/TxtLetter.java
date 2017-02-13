@@ -11,9 +11,8 @@ import es.uniovi.asw.model.UserModel;
 public class TxtLetter implements LetterGenerator{
 
 	@Override
-	public void generateLetter(UserModel user) throws FileNotFoundException {
+	public void generateLetter(UserModel user) {
 		File letter = new File("Letters/" + user.getEmail() + ".txt");
-		
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(letter));
 			bw.write(user.getfName() + ", you have been added to the Council. \nYour login name is: " + user.getEmail() +
