@@ -58,6 +58,7 @@ public class UserDAO implements IUserDAO {
 			System.out.println("User already exists: " + user.toString());
 			File log = new File("Logs/log.txt");
 			try {
+				
 				BufferedWriter bw = new BufferedWriter(new FileWriter(log));
 				bw.append("User already exists: " + user.getfName() + " " + user.getlName() + " " + user.getID() + "\n");
 				bw.close();
