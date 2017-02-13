@@ -35,7 +35,7 @@ public class UserDAO implements IUserDAO {
 	@Override
 	public void save(UserModel user) {
 		
-		String sql = "INSERT INTO (FName, LName, Email, DOB, Address, Nationality, ID, Password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO ASW(FName, LName, Email, DOB, Address, Nationality, ID, Password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(0, user.getfName());
