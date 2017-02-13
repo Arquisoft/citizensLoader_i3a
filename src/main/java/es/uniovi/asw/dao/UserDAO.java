@@ -54,6 +54,7 @@ public class UserDAO implements IUserDAO {
 	}
 	@Override
 	public void save(UserModel user) {
+		
 		if(Exists(user)) {
 			System.out.println("User already exists: " + user.toString());
 			File log = new File("Logs/log.txt");
