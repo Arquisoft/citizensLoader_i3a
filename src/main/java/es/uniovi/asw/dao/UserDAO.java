@@ -39,7 +39,6 @@ public class UserDAO implements IUserDAO {
 		
 	}
 	private boolean Exists(UserModel user) {
-		
 		String sql = "SELECT * FROM ASW WHERE ID = ?";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);

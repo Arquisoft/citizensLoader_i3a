@@ -1,11 +1,7 @@
 package es.uniovi.asw;
 
 import java.util.ArrayList;
-import java.util.logging.Logger;
-
-import es.uniovi.asw.*;
 import es.uniovi.asw.dao.IUserDAO;
-import es.uniovi.asw.factory.impl.DAOFactory;
 import es.uniovi.asw.factory.impl.Factory;
 import es.uniovi.asw.factory.impl.PersonFactory;
 import es.uniovi.asw.model.UserModel;
