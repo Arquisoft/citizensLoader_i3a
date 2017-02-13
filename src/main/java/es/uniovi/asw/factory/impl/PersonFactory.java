@@ -11,6 +11,8 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import es.uniovi.asw.factory.IPersonFactory;
 import es.uniovi.asw.letters.LetterGenerator;
@@ -27,11 +29,12 @@ public class PersonFactory implements IPersonFactory {
 		 
 		 try {
 			 file = new FileInputStream(new File(filename));
-			 HSSFWorkbook hwb = new HSSFWorkbook(file);
-			 HSSFSheet sheet = hwb.getSheetAt(0);
+			 XSSFWorkbook hwb = new XSSFWorkbook(file);
+			 XSSFSheet sheet = hwb.getSheetAt(0);
 			 Iterator<Row> rowIterator = sheet.iterator();
 			 while(rowIterator.hasNext()) {
 				 Row row = rowIterator.next();
+				 
 				 um.add(UserFromRow(row));				 
 			 }
 			 
@@ -58,6 +61,7 @@ public class PersonFactory implements IPersonFactory {
 		ArrayList<String> data = new ArrayList<String>();
 		while(cellIterator.hasNext()) {
 			Cell cell = cellIterator.next();
+			System.out.println(cell.getStringCellValue());
 			data.add(cell.getStringCellValue());
 		}
 		um = new UserModel(data.get(0), data.get(1), data.get(2), data.get(3), 

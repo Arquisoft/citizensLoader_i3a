@@ -83,4 +83,11 @@ public class UserModel {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		return "UserModel [_fName=" + _fName + ", _lName=" + _lName + ", _email=" + _email + ", _bDay=" + _bDay
+				+ ", _address=" + _address + ", _nationality=" + _nationality + ", ID=" + ID + ", password=" + password
+				+ "]";
+	}
 }
