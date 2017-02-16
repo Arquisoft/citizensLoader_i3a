@@ -9,13 +9,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import es.uniovi.asw.SQL;
 import es.uniovi.asw.model.UserModel;
 
 public class UserDAO implements IUserDAO {
 
-	private static String URL = "jdbc:mysql://mysql.ciensbvk8ssi.eu-west-1.rds.amazonaws.com:3306/asw";
-	private static String User = "brreaker";
-	private static String Pass = "ASW13372017";
+	private static String URL = SQL.get("DATABASE_URL");
+	private static String User = SQL.get("DATABASE_USER");
+	private static String Pass = SQL.get("DATABASE_PASS");
 	private static Connection conn;
 	
 	public UserDAO() {
@@ -39,9 +41,8 @@ public class UserDAO implements IUserDAO {
 		
 	}
 	private boolean Exists(UserModel user) {
-		String sql = "SELECT * FROM ASW WHERE ID = ?";
 		try {
-			PreparedStatement stmt = conn.prepareStatement(sql);
+			PreparedStatement stmt = conn.prepareStatement(SQL.get("USER_SELECT_ALL_BY_ID"));
 			stmt.setString(1, user.getID());
 			ResultSet rs = stmt.executeQuery();
 			if(rs.next()) return true;
@@ -68,9 +69,8 @@ public class UserDAO implements IUserDAO {
 			}
 			return;
 		}
-		String sql = "INSERT INTO ASW(FName, LName, Email, DOB, Address, Nationality, ID, Password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
-			PreparedStatement stmt = conn.prepareStatement(sql);
+			PreparedStatement stmt = conn.prepareStatement(SQL.get("USER_INSERT"));
 			stmt.setString(1, user.getfName());
 			stmt.setString(2, user.getlName());
 			stmt.setString(3, user.getEmail());
