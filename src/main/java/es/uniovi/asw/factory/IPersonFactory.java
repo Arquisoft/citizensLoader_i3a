@@ -5,6 +5,6 @@ import java.util.ArrayList;
 import es.uniovi.asw.model.UserModel;
 
 public interface IPersonFactory {
-	ArrayList<UserModel> UsersFromFile(String filename) throws IOException;
+	ArrayList<UserModel> usersFromFile(String filename) throws IOException;
 	
 }

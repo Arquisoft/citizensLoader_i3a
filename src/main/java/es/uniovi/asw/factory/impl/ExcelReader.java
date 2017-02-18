@@ -34,7 +34,7 @@ public class ExcelReader implements FileType{
 		 Iterator<Row> rowIterator = sheet.iterator();
 		 while(rowIterator.hasNext()) {
 			 Row row = rowIterator.next();
-			 UserModel tst = UserFromRow(row);
+			 UserModel tst = userFromRow(row);
 			 if(tst != null)
 				 um.add(tst);				 
 		 }
@@ -54,7 +54,7 @@ public class ExcelReader implements FileType{
 	 * @param row excel row from which the person data is obtained
 	 * @return new user
 	 */
-	private UserModel UserFromRow(Row row) {
+	private UserModel userFromRow(Row row) {
 		UserModel um;
 		Iterator<Cell> cellIterator = row.cellIterator();
 		ArrayList<String> data = new ArrayList<String>();

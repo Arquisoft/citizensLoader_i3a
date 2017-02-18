@@ -13,7 +13,8 @@ public class PersonFactory implements IPersonFactory {
 	
 	private FileType state;
 	
-	public ArrayList<UserModel> UsersFromFile(String filename) throws IOException {
+	@Override
+	public ArrayList<UserModel> usersFromFile(String filename) throws IOException {
 		
 		ArrayList<UserModel> um = new ArrayList<UserModel>();
 		

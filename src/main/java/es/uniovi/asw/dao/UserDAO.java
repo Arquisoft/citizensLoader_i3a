@@ -15,24 +15,21 @@ import es.uniovi.asw.model.UserModel;
 
 public class UserDAO implements IUserDAO {
 
-	private static String URL = SQL.get("DATABASE_URL");
-	private static String User = SQL.get("DATABASE_USER");
-	private static String Pass = SQL.get("DATABASE_PASS");
 	private static Connection conn;
 	
 	public UserDAO() {
 		try {
-			OpenConn();
+			openConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	private void OpenConn() throws SQLException {
+	private void openConn() throws SQLException {
 		try {
 		if(conn == null) {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection(URL, User, Pass);
-			
+			conn = DriverManager.getConnection(SQL.get("DATABASE_URL"),
+					SQL.get("DATABASE_USER"), SQL.get("DATABASE_PASS"));
 			}
 		}
 		catch(Exception e) {
@@ -40,13 +37,12 @@ public class UserDAO implements IUserDAO {
 		}
 		
 	}
-	private boolean Exists(UserModel user) {
+	private boolean exists(UserModel user) {
 		try {
 			PreparedStatement stmt = conn.prepareStatement(SQL.get("USER_SELECT_ALL_BY_ID"));
 			stmt.setString(1, user.getID());
 			ResultSet rs = stmt.executeQuery();
-			if(rs.next()) return true;
-			return false;
+			return rs.next();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,7 +52,7 @@ public class UserDAO implements IUserDAO {
 	@Override
 	public void save(UserModel user) {
 		
-		if(Exists(user)) {
+		if(exists(user)) {
 			System.out.println("User already exists: " + user.toString());
 			File log = new File("Logs/log.txt");
 			try {

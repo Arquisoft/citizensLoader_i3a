@@ -19,13 +19,13 @@ public class LoadUsers {
 		runner.run(args);
 	}
 
-	void run(String... args) {
+	private void run(String... args) {
 		System.out.println("Citizens Loader i3a");
 		System.out.println(args[0]);
 		ArrayList<UserModel> users = new ArrayList<UserModel>();
 		try {
 			PersonFactory pf = new PersonFactory();
-			users = pf.UsersFromFile(args[0]);
+			users = pf.usersFromFile(args[0]);
 			IUserDAO udao = new Factory().getDAO().getUserDAO();
 			for(UserModel us : users)  {
 				udao.save(us);
