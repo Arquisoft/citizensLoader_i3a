@@ -10,7 +10,7 @@ private static final String FILE = "sql.properties";
 	private static SQL instance;
 	private Properties properties;
 
-	private SQL() {
+	private SQL(){
 		properties = new Properties();
 		try {
 			properties.load(SQL.class.getClassLoader().getResourceAsStream(FILE));
