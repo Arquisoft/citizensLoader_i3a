@@ -1,5 +1,6 @@
 package es.uniovi.asw;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import es.uniovi.asw.dao.IUserDAO;
 import es.uniovi.asw.factory.impl.Factory;
@@ -20,21 +21,29 @@ public class LoadUsers {
 	}
 
 	private void run(String... args) {
-		System.out.println("Citizens Loader i3a");
-		System.out.println(args[0]);
+		System.out.println("#########\nCitizens Loader i3a\n#########\n");
+		
 		ArrayList<UserModel> users = new ArrayList<UserModel>();
-		try {
-			PersonFactory pf = new PersonFactory();
-			users = pf.usersFromFile(args[0]);
-			IUserDAO udao = new Factory().getDAO().getUserDAO();
-			for(UserModel us : users)  {
-				udao.save(us);
-				System.out.println("Saved " + us.toString());
+		PersonFactory pf =  new PersonFactory();
+		IUserDAO udao = new Factory().getDAO().getUserDAO();
+
+		for (String file : args){
+			users.clear();
+			try {
+				users = pf.usersFromFile(file);
+				for(UserModel us : users)  {
+					udao.save(us);
+					System.out.println("Saved " + us.toString());
+				}
+				System.out.println("Loaded " + users.size() + " users from " + file + "\n");
+				
+			}catch (IOException e){
+				System.out.printf("\n[ERROR] The file %s could not be loaded\n\n", file);
+			}
+			catch(Exception e) {
+				e.printStackTrace();
 			}
 		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		System.out.println("Loaded " + users.size() + " users from " + args[0]);
 	}
+	
 }

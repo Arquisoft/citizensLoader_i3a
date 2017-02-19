@@ -64,7 +64,6 @@ public class ExcelReader implements FileType{
 				return null;
 			data.add(cell.getStringCellValue());
 		}
-		System.out.println(data.size());
 		um = new UserModel(data.get(0), data.get(1), data.get(2), data.get(3), 
 							data.get(4), data.get(5), data.get(6));
 		um.setPassword(PasswordGenerator.generateRandomPassword());

@@ -20,7 +20,7 @@ public class PersonFactory implements IPersonFactory {
 		
 		chooseFileType(filename);		
 		
-		 try {			 
+		 try {
 			 um= state.readFrom(filename);
 			 
 		} catch (FileNotFoundException e) {
