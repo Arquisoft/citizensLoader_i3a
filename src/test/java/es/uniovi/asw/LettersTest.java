@@ -14,9 +14,7 @@ import es.uniovi.asw.model.UserModel;
 
 public class LettersTest {
 
-	private LetterGenerator generator;
 	private UserModel user;
-	private File newLetter;
 	
 	@Before
 	public void setUp(){
@@ -25,9 +23,9 @@ public class LettersTest {
 	
 	@Test
 	public void testTxtLetter() throws FileNotFoundException {
-		generator = new TxtLetter();
+		LetterGenerator generator = new TxtLetter();
 		generator.generateLetter(user);
-		newLetter = new File("Letters/" + user.getEmail() + ".txt");
+		File newLetter = new File("Letters/" + user.getEmail() + ".txt");
 		assertTrue(newLetter.exists());
 	}
 }

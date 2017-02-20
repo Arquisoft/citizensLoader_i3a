@@ -31,8 +31,9 @@ public class UserDAO implements IUserDAO {
 			conn = DriverManager.getConnection(SQL.get("DATABASE_URL"),
 					SQL.get("DATABASE_USER"), SQL.get("DATABASE_PASS"));
 			}
-		}
-		catch(Exception e) {
+		}catch (IOException e) {
+			System.out.println(e.getMessage());
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		
@@ -43,8 +44,9 @@ public class UserDAO implements IUserDAO {
 			stmt.setString(1, user.getID());
 			ResultSet rs = stmt.executeQuery();
 			return rs.next();
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
@@ -76,8 +78,9 @@ public class UserDAO implements IUserDAO {
 			stmt.setString(7, user.getID());
 			stmt.setString(8, user.getPassword());
 			stmt.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
