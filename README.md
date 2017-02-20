@@ -9,8 +9,6 @@ Skeleton of Citizens Loader module
 
 # Authors
 
-Herminio García González (@herminiogg)
-Jose Emilio Labra Gayo (@labra)
-Katia Fernández Fernández (@katiaff)
-Christian Martínez Abad (@cmabad)
-Manu Andrei (@andreimanu)
+* Katia Fernández Fernández (@katiaff)
+* Christian Martínez Abad (@cmabad)
+* Manu Andrei (@andreimanu)
