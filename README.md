@@ -10,5 +10,5 @@ Skeleton of Citizens Loader module
 # Authors
 
 * Katia Fernández Fernández (@katiaff)
-* Christian Martínez Abad (@cmabad)
+* Christian Martínez (@cmabad)
 * Manu Andrei (@andreimanu)
